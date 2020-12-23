@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/mvc
+    	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context-4.3.xsd ">
+
+    <!--启用注解-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!--扫描注解-->
+    <context:component-scan base-package="cn.name.controller"></context:component-scan>
+
+    <!--视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 系统配置参数. -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!-- 多个PropertyPlaceholderConfigurer，需要设置本属性为true. -->
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="location" value="classpath:/app.properties" />
+    </bean>
+
+    <bean id="sysUsersConfigBean" class="cn.name.model.FFmpegBean">
+        <property name="ffmpegUrl">
+            <value>${ffmpegUrl}</value>
+        </property>
+    </bean>
+
+    <mvc:resources mapping="/upload/**" location="/upload/"/>
+
+    <!--组件id必须multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="10140000000"/>
+    </bean>
+</beans>
