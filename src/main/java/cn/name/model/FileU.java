@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Nominal on 2018/1/15 0015.
- * 微博：@李明易DY
+ * SINA：刘岩松
+ * 2020-12-26
  */
 @Component
 public class FileU {

@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * SINA：刘岩松
+ * 2020-12-26
+ */
 public class ProcessClearStream extends Thread {
     private InputStream inputStream;
     private String type;
