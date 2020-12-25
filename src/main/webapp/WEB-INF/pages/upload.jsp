@@ -1,9 +1,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/1/15 0015
-  Time: 下午 12:50
+  User: 刘岩松
+  Date: 2020/12/25
+  Time: 下午 03:58
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -23,8 +23,8 @@
             background-size: cover;
         }
         .main {
-            width: 370px;
-            height: 380px;
+            width: 800px;
+            height: 880px;
             position: absolute;
             left: 50%;
             top: 50%;
@@ -94,7 +94,9 @@
         <br/> <br/>
         <input type="file" name="myFile"/>
         <br/> <br/>
-        <input type="checkbox" name="music" value="1">智能配乐
+        <input type="checkbox" name="music" >智能配乐
+        <br/> <br/>
+        上下滤镜倍数：<input type="text" name="multi" value="1">
         <br/> <br/>
         <input type="submit" value="上传"/>
         <br/> <br/>
@@ -128,7 +130,8 @@
         //js form
         var form=new FormData();
         form.append("ajaxfile",file);
-
+        form.append("music",document.getElementsByName("music")[0].checked);
+        form.append("multi",document.getElementsByName("multi")[0].value);
         //jquery ajax
         var opt={
             url:"ajax_upload",

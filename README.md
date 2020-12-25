@@ -1,5 +1,10 @@
 # SpringMVCUpDown
 ## SpringMVC实现上传下载
+
+    Created by IntelliJ IDEA.
+    User: 刘岩松
+    Date: 2020/12/25
+
 ### 注意点：
     web.xml
     1、异步上传需在servlet标签中配置
@@ -11,3 +16,5 @@
       <file-size-threshold>0</file-size-threshold>
     </multipart-config>
 ```
+
+

@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/1/15 0015
+  User: 刘岩松
+  Date: 2020/12/25
   Time: 下午 03:58
   To change this template use File | Settings | File Templates.
 --%>
@@ -23,8 +23,8 @@
             background-size: cover;
         }
         .main {
-            width: 370px;
-            height: 380px;
+            width: 800px;
+            height: 880px;
             position: absolute;
             left: 50%;
             top: 50%;
@@ -35,30 +35,11 @@
             border-radius: 5px;
             background-image: url("img/tmbg-white.png");
         }
-
         .main > h1 {
             color: #333;
             font-size: 24px;
             font-weight: lighter;
             text-align: center;
-        }
-        .music, .password, .verification-code {
-            margin-top: 20px;
-            position: relative;
-        }
-        .music {
-            margin-top: 25px;
-        }
-        .music > input, .name > input {
-            width: 100%;
-            height: 46px;
-            font-size: 16px;
-            box-sizing: border-box;
-            padding: 10px;
-            border: 1px solid #ddd;
-            outline: 0 none;
-            line-height: 24px;
-            border-radius: 3px;
         }
 
         ul{
@@ -68,7 +49,7 @@
             float: left;
         }
         ul a{
-            display: block;
+            display: list-item;
             text-decoration: none;
             width: 100px;
             height: 50px;
@@ -86,9 +67,11 @@
         <li><a href="to_upload">上传文件</a></li>
         <li><a href="getDownloads">下载文件</a></li>
     </ul>
-    <%--    <h1>文件上传</h1>--%>
     <br/> <br/>
     <form action="do_upload" method="post" enctype="multipart/form-data">
+        <br/> <br/>
+        <h1>已转换完成视频</h1>
+        <br/> <br/>
         <c:forEach items="${list}" var="item">
             <c:choose>
                 <c:when test="${item.fileName eq 'no data!'}">
@@ -101,6 +84,7 @@
             </c:choose>
             <br/> <br/>
         </c:forEach>
+        <hr>
     </form>
     <hr>
 
